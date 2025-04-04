@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///Users/brett.pohl/%3C!DOCTYPE%20html%3E.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mars Colony Leaderboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 80%; margin: auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        th { background-color: #f4f4f4; cursor: pointer; }
+        .high { background-color: #c8e6c9; }
+        .medium { background-color: #fff9c4; }
+        .low { background-color: #ffcdd2; }
+    </style>
+    <script>
+        function updateScores() {
+            let rows = document.querySelectorAll("tbody tr");
+            rows.forEach(row => {
+                let scores = Array.from(row.querySelectorAll("td input"));
+                let total = scores.reduce((sum, input) => sum + (parseInt(input.value) || 0), 0);
+                let totalCell = row.querySelector(".total");
+                totalCell.textContent = total;
+                if (total >= 80) totalCell.className = "total high";
+                else if (total >= 50) totalCell.className = "total medium";
+                else totalCell.className = "total low";
+            });
+        }
+
+        function sortTable() {
+            let table = document.querySelector("table tbody");
+            let rows = Array.from(table.querySelectorAll("tr"));
+            rows.sort((a, b) => {
+                let aValue = parseInt(a.querySelector(".total").textContent) || 0;
+                let bValue = parseInt(b.querySelector(".total").textContent) || 0;
+                return bValue - aValue;
+            });
+            rows.forEach(row => table.appendChild(row));
+        }
+    </script>
+</head>
+<body>
+    <h2>Mars Colony Project Leaderboard</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Supply List</th>
+                <th>Mission Report #1</th>
+                <th>Mission Report #2</th>
+                <th>Mission Report #3</th>
+                <th>Mission Report #4</th>
+                <th>Mission Report #5</th>
+                <th>Side Missions</th>
+                <th onclick="sortTable()">Total Score ⬍</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Ares Republic</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Lunar Eclipse</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Astropolis</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Biggy Land</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Cincinnati Bengals</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>D.D.I.</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Guacamole Gladiators</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>I...am Steve</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>LeBron</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Mars Bars</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Mars Unicorns</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Perrywinkle Firetruck Wheel</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Specials</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>SSCM</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>The Minions</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>The Unknowns</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Trishlandia</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+            <tr><td>Victory Royal</td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td><input type="number" min="0" oninput="updateScores()"></td><td class="total">0</td></tr>
+        </tbody>
+    </table>
+    <button onclick="sortTable()">Sort by Total Score</button>
+
+
+</body></html>
